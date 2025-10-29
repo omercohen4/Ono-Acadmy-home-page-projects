@@ -6,17 +6,17 @@
     <title>אינדקס פרויקטי גמר מדעי המחשב</title>
     
 <style>
-        /* הגדרת צבעים ראשיים לשימוש קל יותר (משתני CSS) */
+     
         :root {
-            --primary-green: #a7cf33; /* ירוק ליים בולט מהתמונה */
-            --link-blue: #0000FF; /* כחול קלאסי לקישורי GitHub */
+            --primary-green: #a7cf33; 
+            --link-blue: #0000FF; 
             --light-gray-bg: #f5f5f5; 
             --dark-gray-text: #333333; 
             --border-color: #e0e0e0; 
             --white-bg: #ffffff; 
         }
 
-        /* ----------------------- כללים כלליים ----------------------- */
+      
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -43,7 +43,7 @@
             color: #555;
         }
 
-        /* ----------------------- עיצוב האקורדיון הראשי (השנים) ----------------------- */
+       
         details {
             margin-bottom: 20px;
             border: 1px solid var(--border-color);
@@ -53,25 +53,23 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
         }
 
-        /* עיצוב כותרת השנה (ה-Summary של ה-details החיצוני) */
         .year-group > summary {
             font-size: 1.6em;
             font-weight: bold;
-            color: black; /* ⏪ ברירת מחדל: שחור */
+            color: black; 
             padding: 5px 0;
-            border-bottom: 2px solid var(--border-color); /* גבול אפור עדין */
+            border-bottom: 2px solid var(--border-color); 
             cursor: pointer;
             margin-bottom: 10px;
-            transition: color 0.2s; /* אנימציה קלה למעבר הצבע */
+            transition: color 0.2s; 
         }
         
-        /* 💡 השינוי הדינמי: הצבע הופך לירוק רק כשהבלוק פתוח */
+      
         .year-group[open] > summary {
-            color: var(--primary-green); /* 🟢 הופך לירוק כשהבלוק נפתח */
-            border-bottom-color: var(--primary-green); /* הקו התחתון הופך ירוק */
+            color: var(--primary-green);
+            border-bottom-color: var(--primary-green);
         }
 
-        /* ----------------------- עיצוב האקורדיון המקונן (סוגי הפרויקטים) ----------------------- */
         .project-type {
             margin-right: 25px; 
             margin-top: 15px;
@@ -92,11 +90,10 @@
         }
         
         .project-type[open] > summary {
-            color: var(--primary-green); /* 🟢 סוג הפרויקט הופך לירוק כשהוא פתוח */
+            color: var(--primary-green);
         }
 
 
-        /* ----------------------- עיצוב הטבלה ----------------------- */
         table {
             width: 100%; 
             margin-top: 15px;
@@ -116,9 +113,8 @@
             border-bottom: 2px solid var(--primary-green);
         }
         
-        /* 💡 השינוי לקישורים: צבע כחול קלאסי */
         td a {
-            color: var(--link-blue); /* 🟦 קישור בצבע כחול */
+            color: var(--link-blue);
             text-decoration: none; 
             font-weight: bold;
         }
@@ -132,8 +128,7 @@
 <body>
     
     <h1>פרויקטים - מדעי המחשב</h1> 
-    <p>ברוכים הבאים לעמוד פרויקטי הסיום של תלמידי שנה ג'. כאן תוכלו לצפות בעבודות המצטיינות מכל מחזור.</p>
-    
+    <p>ברוכים הבאים לעמוד פרויקטי הסיום של תלמידי שנה ג</p>    
     <details open class="year-group">
         <summary>פרויקטי גמר מחזור תשפ"ו (2025-2026)</summary>
         
@@ -201,6 +196,7 @@
         <summary>פרויקטי גמר מחזור תשפ"ד (2023-2024)</summary>
         <p>רשימת הפרויקטים תוכנס בקרוב.</p>
     </details>
-
+<script src="https://cdn.enable.co.il/buttons/button.js"></script>
 </body>
+
 </html>
