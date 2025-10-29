@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אינדקס פרויקטי גמר מדעי המחשב</title>
+    
+<style>
+        /* הגדרת צבעים ראשיים לשימוש קל יותר (משתני CSS) */
+        :root {
+            --primary-green: #a7cf33; /* ירוק ליים בולט מהתמונה */
+            --link-blue: #0000FF; /* כחול קלאסי לקישורי GitHub */
+            --light-gray-bg: #f5f5f5; 
+            --dark-gray-text: #333333; 
+            --border-color: #e0e0e0; 
+            --white-bg: #ffffff; 
+        }
+
+        /* ----------------------- כללים כלליים ----------------------- */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: var(--light-gray-bg);
+            color: var(--dark-gray-text);
+        }
+
+        h1 {
+            color: var(--dark-gray-text);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* ----------------------- עיצוב האקורדיון הראשי (השנים) ----------------------- */
+        details {
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            background-color: var(--white-bg);
+            padding: 10px;
+            border-radius: 5px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+        }
+
+        /* עיצוב כותרת השנה (ה-Summary של ה-details החיצוני) */
+        .year-group > summary {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: black; /* ⏪ ברירת מחדל: שחור */
+            padding: 5px 0;
+            border-bottom: 2px solid var(--border-color); /* גבול אפור עדין */
+            cursor: pointer;
+            margin-bottom: 10px;
+            transition: color 0.2s; /* אנימציה קלה למעבר הצבע */
+        }
+        
+        /* 💡 השינוי הדינמי: הצבע הופך לירוק רק כשהבלוק פתוח */
+        .year-group[open] > summary {
+            color: var(--primary-green); /* 🟢 הופך לירוק כשהבלוק נפתח */
+            border-bottom-color: var(--primary-green); /* הקו התחתון הופך ירוק */
+        }
+
+        /* ----------------------- עיצוב האקורדיון המקונן (סוגי הפרויקטים) ----------------------- */
+        .project-type {
+            margin-right: 25px; 
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: var(--light-gray-bg);
+            border-left: 3px solid var(--primary-green); 
+            border-radius: 3px;
+        }
+
+        .project-type > summary {
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 5px 0;
+            color: var(--dark-gray-text);
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .project-type[open] > summary {
+            color: var(--primary-green); /* 🟢 סוג הפרויקט הופך לירוק כשהוא פתוח */
+        }
+
+
+        /* ----------------------- עיצוב הטבלה ----------------------- */
+        table {
+            width: 100%; 
+            margin-top: 15px;
+            border-collapse: collapse;
+            text-align: right; 
+        }
+
+        table, th, td {
+            border: 1px solid var(--border-color); 
+            padding: 12px;
+        }
+        
+        th {
+            background-color: #eef4e1; 
+            color: var(--dark-gray-text);
+            font-weight: bold;
+            border-bottom: 2px solid var(--primary-green);
+        }
+        
+        /* 💡 השינוי לקישורים: צבע כחול קלאסי */
+        td a {
+            color: var(--link-blue); /* 🟦 קישור בצבע כחול */
+            text-decoration: none; 
+            font-weight: bold;
+        }
+        td a:hover {
+            text-decoration: underline; 
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>פרויקטים - מדעי המחשב</h1> 
+    <p>ברוכים הבאים לעמוד פרויקטי הסיום של תלמידי שנה ג'. כאן תוכלו לצפות בעבודות המצטיינות מכל מחזור.</p>
+    
+    <details open class="year-group">
+        <summary>פרויקטי גמר מחזור תשפ"ו (2025-2026)</summary>
+        
+        <details class="project-type">
+            <summary>פרויקט אינטרנט של הדברים (IoT) 2026</summary>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>שם הפרויקט</th>
+                        <th>שמות הסטודנטים</th>
+                        <th>קישור ל-GitHub</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>פרויקט מעקב חכם לגינה</td>
+                        <td>שירן ויונתן</td>
+                        <td><a href="#" target="_blank">לינק ל-GitHub</a></td> 
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+        
+        <details class="project-type">
+            <summary>פרויקט למידת מכונה (ML) 2026</summary>
+            
+            <p>טבלת הפרויקטים בקטגוריה זו תתעדכן בקרוב.</p>
+        </details>
+
+    </details>
+
+    <details class="year-group">
+        <summary>פרויקטי גמר מחזור תשפ"ה (2024-2025)</summary>
+        
+        <details class="project-type">
+            <summary>פרויקט למידת מכונה (ML) 2025</summary>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>שם הפרויקט</th>
+                        <th>שמות הסטודנטים</th>
+                        <th>קישור ל-GitHub</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>מערכת ניהול משימות מבוססת AI</td>
+                        <td>דני ונועם</td>
+                        <td><a href="https://github.com/project-ai-management" target="_blank">לינק ל-GitHub</a></td> 
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+        
+        <details class="project-type">
+            <summary>פרויקט אינטרנט של הדברים (IoT) 2025</summary>
+            <p>עדיין אין נתונים בקטגוריה זו לשנה זו.</p>
+        </details>
+        
+    </details>
+    
+    <details class="year-group">
+        <summary>פרויקטי גמר מחזור תשפ"ד (2023-2024)</summary>
+        <p>רשימת הפרויקטים תוכנס בקרוב.</p>
+    </details>
+
+</body>
+</html>
