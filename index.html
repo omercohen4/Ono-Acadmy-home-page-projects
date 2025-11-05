@@ -8,91 +8,175 @@
 <style>
      
         :root {
-            --primary-green: #a7cf33; 
+            --primary-green: #a7cf33; /* ירוק ליים - צבע הדגשה חזק */
             --link-blue: #0000FF; 
-            --light-gray-bg: #f5f5f5; 
-            --dark-gray-text: #333333; 
-            --border-color: #e0e0e0; 
-            --white-bg: #ffffff; 
+            --dark-bg: #141414; /* רקע שחור כהה (כמו נטפליקס) */
+            --mid-gray: #333333; /* אפור בינוני לבלוקים פנימיים */
+            --text-light: #f0f0f0; /* טקסט לבן-אפרפר */
         }
 
       
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 30px;
             line-height: 1.6;
-            background-color: var(--light-gray-bg);
-            color: var(--dark-gray-text);
+            background-color: var(--dark-bg); /* רקע כהה! */
+            color: var(--text-light); /* טקסט בהיר! */
         }
 
         h1 {
-            color: var(--dark-gray-text);
+            color: var(--text-light); 
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2.2em;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
+            font-size: 2.8em; 
+            border-bottom: 3px solid var(--primary-green); /* קו ירוק בולט */
+            padding-bottom: 15px;
         }
 
         p {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 30px auto;
-            font-size: 1.1em;
-            color: #555;
+            margin: 0 auto 50px auto; 
+            font-size: 1.2em;
+            color: #b0b0b0; 
         }
 
        
         details {
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-            background-color: var(--white-bg);
-            padding: 10px;
-            border-radius: 5px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+            margin-bottom: 35px; 
+            border: none; 
+            background-color: var(--dark-bg); 
+            padding: 0; 
+            border-radius: 0; 
+            box-shadow: none; 
         }
 
         .year-group > summary {
-            font-size: 1.6em;
+            font-size: 1.8em;
             font-weight: bold;
-            color: black; 
-            padding: 5px 0;
-            border-bottom: 2px solid var(--border-color); 
+            color: var(--text-light); 
+            padding: 10px 0;
+            border-bottom: 2px solid var(--mid-gray); 
             cursor: pointer;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             transition: color 0.2s; 
         }
         
       
         .year-group[open] > summary {
-            color: var(--primary-green);
+            color: var(--primary-green); 
             border-bottom-color: var(--primary-green);
         }
 
-        .project-type {
-            margin-right: 25px; 
-            margin-top: 15px;
-            margin-bottom: 15px;
-            padding: 10px;
-            background-color: var(--light-gray-bg);
-            border-left: 3px solid var(--primary-green); 
-            border-radius: 3px;
+        /* ------------------------------------------- */
+        /* עיצוב כותרות הקורס (H2) וקו הפרדה (HR) */
+        /* ------------------------------------------- */
+        
+        h2 { 
+            color: var(--text-light); 
+            font-size: 1.5em; 
+            border-bottom: 1px solid var(--mid-gray); 
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: right;
         }
 
-        .project-type > summary {
-            font-weight: bold;
-            font-size: 1.2em;
-            padding: 5px 0;
-            color: var(--dark-gray-text);
-            cursor: pointer;
-            margin-bottom: 10px;
+        /* קו הפרדה נקי (HR) */
+        .separator {
+            border: 0;
+            height: 1px;
+            background-color: var(--text-light); 
+            margin: 40px 0; 
+        }
+
+
+        /* ------------------------------------------- */
+        /* CSS לגלריית תמונות (Flexbox - 3 עמודות) */
+        /* ------------------------------------------- */
+        
+        .project-gallery {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-around; /* פיזור רווחים בין הפריטים */
+            margin-top: 15px;
+        }
+
+        .gallery-item {
+            width: 31%; 
+            max-width: 380px; 
+            position: relative; /* חובה לטקסט הריחוף */
+            overflow: hidden; 
+            text-align: center;
+            text-decoration: none; 
+            color: var(--text-light);
+            margin-bottom: 25px; 
+            
+            border: none; 
+            padding: 0; 
+            background-color: var(--dark-bg); 
+            
+            border-radius: 5px;
+            transition: transform 0.3s; 
+        }
+
+        .gallery-item:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+            transform: scale(1.05); /* גורם לפריט "לקפוץ" */
         }
         
-        .project-type[open] > summary {
-            color: var(--primary-green);
+        /* הסרת המסגרת מהתמונה עצמה */
+        .gallery-item img {
+            width: 100%; 
+            height: auto;
+            display: block; 
+            border-radius: 3px;
+            border: none; /* מוחק את המסגרת */
+            transition: opacity 0.3s ease;
+        }
+        
+        /* ------------------------------------------- */
+        /* 💡 אפקט הריחוף (Hover Effect) - חשיפת פרטים */
+        /* ------------------------------------------- */
+        
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.75); /* רקע שחור שקוף למטה */
+            color: var(--text-light);
+            
+            /* ❌ הסתרת הכיתוב כברירת מחדל */
+            transform: translateY(100%); 
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        
+        /* ✅ חשיפת הכיתוב כשהעכבר על הבלוק הראשי */
+        .gallery-item:hover .project-info {
+            transform: translateY(0); /* החזרת הכיתוב למעלה */
+            opacity: 1;
         }
 
+        .project-info h3 { /* עיצוב שם הפרויקט */
+            font-size: 1.1em;
+            margin: 0 0 5px 0;
+            color: var(--primary-green);
+        }
+        
+        .project-info p { /* עיצוב שמות הסטודנטים */
+            font-size: 0.9em;
+            margin: 0;
+            padding: 0;
+            color: #ccc;
+        }
+
+        /* ------------------------------------------- */
+        /* CSS לטבלאות (נשמר למחזורים ישנים) */
+        /* ------------------------------------------- */
 
         table {
             width: 100%; 
@@ -102,13 +186,14 @@
         }
 
         table, th, td {
-            border: 1px solid var(--border-color); 
+            border: 1px solid var(--mid-gray); 
             padding: 12px;
+            color: var(--text-light);
         }
         
         th {
-            background-color: #eef4e1; 
-            color: var(--dark-gray-text);
+            background-color: #252525; 
+            color: var(--text-light);
             font-weight: bold;
             border-bottom: 2px solid var(--primary-green);
         }
@@ -128,13 +213,14 @@
 <body>
     
     <h1>פרויקטים - מדעי המחשב</h1> 
-    <p>ברוכים הבאים לעמוד פרויקטי הסיום של תלמידי שנה ג</p>    
+    <p></p>    
     <details class="year-group">
-        <summary>פרויקטי גמר מחזור תשפ"ו (2025-2026)</summary>
+
+        <summary>מחזור תשפ"ו (2025-2026)</summary>
         
         <details class="project-type">
 
-            <summary>פרויקט ב - unity</summary>
+            <summary>unity</summary>
             
             <table>
                 <thead>
@@ -159,7 +245,7 @@
 
         <details class="project-type">
 
-            <summary>פרויקט אינטרנט של הדברים (IOT)</summary>
+            <summary>IOT</summary>
             
             <table>
                 <thead>
@@ -180,7 +266,7 @@
         </details>
         
         <details class="project-type">
-            <summary>פרויקט למידת מכונה (ML)</summary>
+            <summary>למידת מכונה - (ML)</summary>
             
             <p>טבלת הפרויקטים בקטגוריה זו תתעדכן בקרוב.</p>
         </details>
@@ -222,6 +308,79 @@
         <summary>פרויקטי גמר מחזור תשפ"ד (2023-2024)</summary>
         <p>טבלת הפרויקטים בקטגוריה זו תתעדכן בקרוב.</p>
     </details>
+
+
+
+
+
+
+
+
+<details open class="year-group">
+    <summary>פרויקטי גמר מחזור תשפ"ו (2025-2026)</summary>
+    
+    <h2>Unity</h2>
+    
+    <div class="project-gallery">
+        
+        <a href= "https://github.com/omercohen4/MovingCubes---game" target="_blank" class="gallery-item">
+    <img src="cubes picture.jpg" alt="צילום מסך"> 
+    
+    <div class="project-info">
+        <h3>קוביות זזות</h3>
+        <p>יערה ועומר</p>
+    </div>
+    
+        </a>
+        
+        <a href="https://github.com/omercohen4/MovingCubes---game" target="_blank" class="gallery-item">
+    <img src="Bee picture.png" alt="צילום מסך"> 
+
+    <div class="project-info">
+        <h3>קוביות זזות</h3>
+        <p>קוביות זזות</p>
+    </div>
+
+
+        </a>
+        
+        <a href="https://github.com/omercohen4/MovingCubes---game" target="_blank" class="gallery-item">
+    <img src="computer picture.png" alt="צילום מסך"> 
+
+    <div class="project-info">
+        <h3>קוביות זזות</h3>
+        <p>קוביות זזות</p>
+    </div>
+
+
+    
+    
+    </details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 <script src="https://cdn.enable.co.il/buttons/button.js"></script>
 
